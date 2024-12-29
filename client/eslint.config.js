@@ -13,8 +13,7 @@ export default [
   pluginReact.configs.flat.recommended,
   {
     rules: {
-      
-      // Add more custom rules here
+      'react/react-in-jsx-scope': 'off',
     }
   },
   eslintConfigPrettier,
