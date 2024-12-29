@@ -1,5 +1,6 @@
 import { Link, Route, Routes } from "react-router-dom"
 import logo from './assets/logo.svg'
+import { Home } from "./pages/Home"
 
 export const App = () => {
   return (
