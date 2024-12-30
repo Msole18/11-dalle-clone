@@ -22,7 +22,10 @@ export const FormField = ({
   return (
     <div>
       <div className="flex items-center gap-2 mb-2">
-        <label htmlFor={name} className="block text-sm font-medium text-gray-900">
+        <label
+          htmlFor={name}
+          className="block text-sm font-medium text-gray-900"
+        >
           {labelName}
         </label>
         {isSurpriseMe && (
@@ -34,16 +37,16 @@ export const FormField = ({
             Surprise me
           </button>
         )}
-        <input
-          className="bg-gray-50 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#4649ff] focus:border-[#4649ff] outline-none w-full p-3"
-          name={name}
-          onChange={handleChange}
-          placeholder={placeholder}
-          required
-          type={type}
-          value={value}
-        />
       </div>
+      <input
+        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#4649ff] focus:border-[#4649ff] outline-none w-full p-3"
+        name={name}
+        onChange={handleChange}
+        placeholder={placeholder}
+        required
+        type={type}
+        value={value}
+      />
     </div>
   )
 }
