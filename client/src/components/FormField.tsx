@@ -31,7 +31,8 @@ export const FormField = ({
         {isSurpriseMe && (
           <button
             type="button"
-            className="font-semibold text-xs bg-[#eceecf1] py-1 px-2 rounded-[5px] text-black"
+            className="font-semibold text-xs bg-[#EcECF1] py-1 px-2 rounded-[5px]
+             text-black"
             onClick={handleIsSurpriseMe}
           >
             Surprise me
@@ -39,7 +40,9 @@ export const FormField = ({
         )}
       </div>
       <input
-        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#4649ff] focus:border-[#4649ff] outline-none w-full p-3"
+        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm 
+          rounded-lg focus:ring-[#6469ff] focus:border-[#6469ff] outline-none 
+          block w-full p-3"
         name={name}
         onChange={handleChange}
         placeholder={placeholder}
