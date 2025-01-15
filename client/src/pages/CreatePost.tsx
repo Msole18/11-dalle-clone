@@ -4,8 +4,11 @@ import preview from "../assets/preview.png";
 import { useState } from "react";
 import { Loader } from "../components/Loader";
 import { getRandomPrompt } from "../utils";
+import { useNavigate } from "react-router-dom";
 
 export const CreatePost = () => {
+  const navigate = useNavigate()
+
   const [form, setForm] = useState({
     name: "",
     prompt: "",
@@ -14,8 +17,6 @@ export const CreatePost = () => {
   
   const [generatingImg, setGeneratingImg] = useState(false);
   const [loading, setLoading] = useState(false)
-
-  const handleSubmit = () => { };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setForm({...form, [e.target.name]: e.target.value})
@@ -27,7 +28,6 @@ export const CreatePost = () => {
   };
 
   const generateImage = async() => {
-    alert('click')
     if (form.prompt) {
       try {
         setGeneratingImg(true)
@@ -48,6 +48,31 @@ export const CreatePost = () => {
       } 
     } else {
       alert('Please enter a prompt')
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+
+    if (form.prompt && form.photo) {
+      setLoading(true)
+      try {
+        const response = await fetch(`http://localhost:8080/api/v1/post`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(form)
+        })
+        await response.json()
+        navigate('/')
+      } catch (error) {
+        alert(error)
+      } finally {
+        setLoading(false)
+      } 
+    } else {
+      alert('Please enter a prompt and generate a image')
     }
   };
 

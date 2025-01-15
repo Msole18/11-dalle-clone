@@ -1,11 +1,7 @@
-interface IPost{
-  _id: string,
-  title: string,
-  content: string,
-}
-
-interface IForm {
+interface IPost {
+  _id: string
   name: string
-  promt: string
+  prompt: string
   photo: string
 }
+
